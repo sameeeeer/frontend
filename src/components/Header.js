@@ -11,7 +11,7 @@ class Header extends React.Component{
 <header class="main-header">
 
 
-<a href="index.html" class="logo  ">
+<a href="/" class="logo  ">
 
   <span class="logo-mini"><b>B</b><b>For</b>you</span>
 
@@ -27,7 +27,7 @@ class Header extends React.Component{
         <a href="Login">Login</a>
       </li>
       <li>
-        <a href="signup.html">Sign Up</a>
+        <a href="Signup">Sign Up</a>
       </li>  
     </ul>
   </div>
