@@ -24,7 +24,7 @@ class Header extends React.Component{
   <div class="navbar-custom-menu">
     <ul class="nav navbar-nav">
       <li>
-        <a href="login.html">Login</a>
+        <a href="Login">Login</a>
       </li>
       <li>
         <a href="signup.html">Sign Up</a>

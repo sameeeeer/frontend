@@ -17,7 +17,6 @@ class Indexpage extends React.Component{
         <div className="row">
           <div className="col-md-12 text-center index-head">
             <h1>Find<strong> the stories</strong> of your choice</h1>
-            <p><a className="btn btn-danger btn-lg" href="jobs.php" role="button">Search Blogg</a></p>
           </div>
         </div>
       </div>
