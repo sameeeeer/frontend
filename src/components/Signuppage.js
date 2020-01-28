@@ -43,7 +43,7 @@ class Signuppage extends React.Component{
 
    handleRedirect(){
     if(this.state.redirect){
-      return <Redirect to='/Login'/>
+      return <Redirect to='/Blog'/>
     }
   }
 
@@ -124,8 +124,8 @@ class Signuppage extends React.Component{
  
  
   </div>			
-
-            </div>
+</div>
+       
 
         )
        }
