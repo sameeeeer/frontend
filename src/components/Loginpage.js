@@ -42,6 +42,7 @@ class Loginpage extends React.Component{
 
         return(
    <div>
+      {this.handleRedirect()}
 <div className="login-box">
   <div className="login-logo">
     <a href="index.php"><b>Blogg </b>For<b/> You</a>

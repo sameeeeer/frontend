@@ -5,47 +5,47 @@ import { Redirect } from 'react-router';
 
 
 class Signuppage extends React.Component{
-   constructor(){
-     super();
-     this.state = {
-       'fname' : '',
-       'lname' : '',
-       'number' : '',
-       'dob' : '',
-       'gender' : '',
-       'email' : '',
-       'password' : '',
-       redirect : false,
-     }
-   }
-
-   sendUser = (e) =>{
-     e.preventDefault();
-     const data = {
-       fname: this.state.fname,
-       lname: this.state.lname,
-       number: this.state.number,
-       dob: this.state.dob,
-       gender: this.state.gender,
-       email: this.state.email,
-       password: this.state.password
-     }
-     axios.post('http://localhost:3000/register',data).then(() => {
-
-     this.setState({
-       redirect : true
-     })
-     })
-
-     
-    
-   }
-
-   handleRedirect(){
-    if(this.state.redirect){
-      return <Redirect to='/Blog'/>
+  constructor(){
+    super();
+    this.state = {
+      'fname' : '',
+      'lname' : '',
+      'number' : '',
+      'dob' : '',
+      'gender' : '',
+      'email' : '',
+      'password' : '',
+      redirect : false,
     }
   }
+
+  sendUser = (e) =>{
+    e.preventDefault();
+    const data = {
+      fname: this.state.fname,
+      lname: this.state.lname,
+      number: this.state.number,
+      dob: this.state.dob,
+      gender: this.state.gender,
+      email: this.state.email,
+      password: this.state.password
+    }
+    axios.post('http://localhost:3000/register',data).then(() => {
+
+    this.setState({
+      redirect : true
+    })
+    })
+
+
+
+  }
+
+  handleRedirect(){
+   if(this.state.redirect){
+     return <Redirect to='/login'/>
+   }
+ }
 
        render(){
 
