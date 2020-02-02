@@ -7,6 +7,7 @@ import axios from 'axios'
 
 
 class Editprofile extends React.Component{
+    
   render(){
         return(
             <div>

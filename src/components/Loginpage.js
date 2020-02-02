@@ -2,111 +2,86 @@ import React, { Component }from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router';
 
-
+import {
+  Container, Col, Form, FormGroup, Label, Input, Button, FormText
+} from 'reactstrap'
 
 
 class Loginpage extends React.Component{
-  constructor(){
-    super();
+  constructor(props) {
+    super(props)
     this.state = {
-      registerError:'',
-      loading:false,
-      formdata:{
-          email:{
-              value:'',
-              config:{
-                  name:'email_input',
-                  type:'email',
-                  placeholder:'Enter your email'
-              },
-              validation:{
-                  required:true,
-                  email:true
-              }
-            },
-            password:{
-                value:'',
-                config:{
-                    name:'password_input',
-                    type:'password',
-                    placeholder:'Enter your password'
-                },
-                validation:{
-                    required:true,
-                    password:true
-                }
-            }
-        }
-      }
+        email: '',
+        password: '',
+        isLoggedIn: false
     }
-  loginuser = (e) =>{
+}
+handleChange = (e) => {
+    this.setState(
+        { [e.target.name]: e.target.value }
+    )
+}
+submitForm = (e) => {
     e.preventDefault();
-   // alert("dsafdafdsafdsafd")
-    const data = {
-    
-      email: this.state.email,
-      password: this.state.password
+    axios.post('http://localhost:3000/login', this.state)
+        .then((response) => {
+            console.log(response.data)
+            localStorage.setItem('token', response.data.token)
+            this.setState({ isLoggedIn: true })
+        }).catch((err) => console.log(err.response))
+    this.setState({ email: '', password: '' })
+}
+render() {
+
+    if (this.state.isLoggedIn === true) {
+        return <Redirect to='/blog' />
     }
-    
-    axios.post('http://localhost:3000/login',data).then(() => {
-
-    this.setState({
-      redirect : true
-    })
-    })
-
-    
-   
-  }
-
-  handleRedirect(){
-   if(this.state.redirect){
-     return <Redirect to='/Blog'/>
-   }
- }
-       render(){
-
-        return(
+    return (
    <div>
-      {this.handleRedirect()}
 <div className="login-box">
   <div className="login-logo">
     <a href="index.php"><b>Blogg </b>For<b/> You</a>
   </div>
     <div className="login-box-body">
     <p className="login-box-msg">Candidates Login</p>
-
-    <form className="form login" method="post">
-
-    <div className="form-group has-feedback">
-                        <input className="form-control" type="email" required autocomplete="off" value={this.state.email} onChange={(event)=>
-                        this.setState({email: event.target.value})} placeholder="Email *"/>
-						<span className="glyphicon glyphicon-user form-control-feedback"></span>
-						  </div>
-
-       <div className="form-group has-feedback">
-                      <input className="form-control" type="password" required autocomplete="off" value={this.state.password} onChange={(event)=>
-                        this.setState({password: event.target.value})} placeholder="Password*"/>
-                        	<span className="glyphicon glyphicon-lock form-control-feedback"></span>
-					  
-				    </div>
-          <div className="row">
-        <div className="col-xs-8">
+                <Form>
+                <div className="form-group has-feedback">
+                    <Col>
+                        <FormGroup>
+                            <Label for='email'>Email</Label>
+                            <Input type='email'  class="form-control" name='email' id='email' value={this.state.email} onChange={this.handleChange} />
+                            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
+                    </div>
+                    <div class="form-group has-feedback">
+                    <Col>
+                        <FormGroup>
+                            <Label for='password'>Password</Label>
+                            <Input type='password' class="form-control" name='password' id='password' value={this.state.password} onChange={this.handleChange} />
+                            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
+                    </div>
+                    <div class="row">
+        <div class="col-xs-8">
           <a href="#">I forgot my password</a>
         </div>
-<div className="col-xs-4">
-<button type="submit" className="btn btn-primary btn-block btn-flat" onClick={this.loginuser}>Login</button>
-                       </div>
+
+        <div class="col-xs-4">
+        <Button class="btn btn-primary btn-block btn-flat" color="primary" onClick={this.submitForm} type="submit">Submit</Button>
+                    
+                
+        </div>
+       
+      </div>
+                 
+</Form>
  
+
  </div>
  
- 
-    </form>
-
- 
-  </div>
-  </div>
- 
+           </div>
            </div>
             
            

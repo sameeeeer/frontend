@@ -1,9 +1,12 @@
 import React from 'react'
+import Post from './post'
 
 class Newsfeedpage extends React.Component{
        
     render(){
-
+      const photoblog = this.props.post.map(post => {
+        return <Post post={post} />
+      })
         return(
             <div>
                 
@@ -19,10 +22,10 @@ class Newsfeedpage extends React.Component{
           </div>
           <div className="box-body no-padding">
             <ul className="nav nav-pills nav-stacked">
-            <li className="active"><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
-              <li><a href="Editprofile"><i className="fa fa-retweet"></i> Edit Profile</a></li>
+            <li  className="active"><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
+              <li><a href="Editprofile"><i className="fa fa-user"></i> Edit Profile</a></li>
               <li><a href="Blog"><i className="fa fa-envelope"></i> Post Blog</a></li>
-              <li><a href="Mypost"><i className="fa fa-post"></i> My post</a></li>
+              <li><a href="Mypost"><i className="fa fa-retweet"></i> My post</a></li>
               <li><a href="Logout"><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
             </ul>
           </div>
@@ -31,7 +34,9 @@ class Newsfeedpage extends React.Component{
       <div className="col-md-9 bg-white padding-2">
       <form action="#" method="post" enctype="multipart/form-data" className="p-5 bg-white">
         <div className="box box-primary">
-         
+        <div class="col-md-7 gedf-main">
+                    {photoblog}
+                  </div>
         </div>
       </form>
       </div>
