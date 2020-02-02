@@ -22,9 +22,7 @@ class Header extends React.Component{
 <nav class="navbar navbar-static-top">
  
   <div class="navbar-custom-menu">
-  <li>
-        <a href="Log out">Log out</a>
-      </li>  
+  
   </div>
 </nav>
 </header>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Newsfeedpage extends React.Component{
+class Mypostpage extends React.Component{
        
     render(){
 
@@ -19,10 +19,10 @@ class Newsfeedpage extends React.Component{
           </div>
           <div className="box-body no-padding">
             <ul className="nav nav-pills nav-stacked">
-            <li className="active"><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
+            <li><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
               <li><a href="Editprofile"><i className="fa fa-retweet"></i> Edit Profile</a></li>
               <li><a href="Blog"><i className="fa fa-envelope"></i> Post Blog</a></li>
-              <li><a href="Mypost"><i className="fa fa-post"></i> My post</a></li>
+              <li className="active"><a href="Mypost"><i className="fa fa-post"></i> My post</a></li>
               <li><a href="Logout"><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
             </ul>
           </div>
@@ -48,4 +48,4 @@ class Newsfeedpage extends React.Component{
         )
        }
 }
-export default Newsfeedpage
+export default Mypostpage

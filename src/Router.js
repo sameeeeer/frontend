@@ -8,6 +8,7 @@ import Signup from './container/Signup'
 import Blog from './container/Blog'
 import Newsfeed from './container/Newsfeed'
 import Editprofile from './container/Editprofile'
+import Mypost from './container/Mypost';
 
 class Router extends Component{
     render(){
@@ -20,6 +21,7 @@ class Router extends Component{
                 <Route exact path="/Blog" component={Blog} />
                 <Route exact path="/Newsfeed" component={Newsfeed} />
                 <Route exact path="/Editprofile" component={Editprofile} />
+                <Route exact path="/Mypost" component={Mypost} />
             </Switch>
             </BrowserRouter>
         )

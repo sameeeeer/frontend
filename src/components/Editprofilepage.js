@@ -22,8 +22,8 @@ class Editprofilepage extends React.Component{
             <li><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
               <li className="active"><a href="Editprofile"><i className="fa fa-user"></i> Edit Profile</a></li>
               <li><a href="Blog"><i className="fa fa-envelope"></i> Post Blog</a></li>
-              <li><a href="#"><i className="fa fa-gear"></i> Settings</a></li>
-              <li><a href="#"><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
+              <li><a href="Mypost"><i className="fa fa-retweet"></i> My post</a></li>
+              <li><a href="Logout"><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
             </ul>
           </div>
         </div>
