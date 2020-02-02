@@ -7,6 +7,7 @@ import Login from './container/Login'
 import Signup from './container/Signup'
 import Blog from './container/Blog'
 import Newsfeed from './container/Newsfeed'
+import Editprofile from './container/Editprofile'
 
 class Router extends Component{
     render(){
@@ -18,6 +19,7 @@ class Router extends Component{
                 <Route exact path="/Signup" component={Signup} />
                 <Route exact path="/Blog" component={Blog} />
                 <Route exact path="/Newsfeed" component={Newsfeed} />
+                <Route exact path="/Editprofile" component={Editprofile} />
             </Switch>
             </BrowserRouter>
         )
