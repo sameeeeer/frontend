@@ -21,6 +21,7 @@ class Blogpage extends React.Component{
           </div>
           <div className="box-body no-padding">
             <ul className="nav nav-pills nav-stacked">
+            <li><a href="Newsfeed"><i className="fa fa-user"></i> Newsfeed</a></li>
               <li><a href="#"><i className="fa fa-user"></i> Edit Profile</a></li>
               <li className="active"><a href="blog.htm"><i className="fa fa-envelope"></i> Post Blog</a></li>
               <li><a href="#"><i className="fa fa-gear"></i> Settings</a></li>
@@ -39,9 +40,6 @@ class Blogpage extends React.Component{
           <div className="box-body">
              <div className="form-group">
               <input className="form-control" name="Catagory" placeholder="Catagory:"/>
-            </div>
-            <div className="form-group">
-              <input className="form-control" name="subject" placeholder="Tittle:"/>
             </div>
   
      <div className="row form-group">

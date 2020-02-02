@@ -2,13 +2,12 @@ import React from 'react'
 import Blogpage from '../components/Blogpage';
 import Header from '../components/UserNav/Header';
 import Footer from '../components/Footer';
+import axios from 'axios'
 
 
 
 class Blog extends React.Component{
-   
-       render(){
-
+  render(){
         return(
             <div>
                 <Header />

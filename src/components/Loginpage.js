@@ -9,11 +9,36 @@ class Loginpage extends React.Component{
   constructor(){
     super();
     this.state = {
-      email : '',
-      password : ''
+      registerError:'',
+      loading:false,
+      formdata:{
+          email:{
+              value:'',
+              config:{
+                  name:'email_input',
+                  type:'email',
+                  placeholder:'Enter your email'
+              },
+              validation:{
+                  required:true,
+                  email:true
+              }
+            },
+            password:{
+                value:'',
+                config:{
+                    name:'password_input',
+                    type:'password',
+                    placeholder:'Enter your password'
+                },
+                validation:{
+                    required:true,
+                    password:true
+                }
+            }
+        }
+      }
     }
-  }
-
   loginuser = (e) =>{
     e.preventDefault();
    // alert("dsafdafdsafdsafd")
@@ -22,6 +47,7 @@ class Loginpage extends React.Component{
       email: this.state.email,
       password: this.state.password
     }
+    
     axios.post('http://localhost:3000/login',data).then(() => {
 
     this.setState({

@@ -40,32 +40,10 @@ class Indexpage extends React.Component{
         </div>
       </div>
     </section>
-			
-	
 	
 	  
  </div>
  </div>
- <section className="content-header">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 latest-job margin-bottom-20">
-            <h1 className="text-center">Latest Blogs</h1>            
-          
-            <div className="attachment-block clearfix">
-              <div className="attachment-pushed">
-                <h4 className="attachment-heading"><a href="#"></a> <span className="attachment-heading pull-right"></span></h4>
-                <div className="attachment-text">
-                    <div><strong></strong></div>
-                </div>
-              </div>
-            </div>
-        
-
-          </div>
-        </div>
-      </div>
-    </section>
  <div className="container" id="contact">
         <h2 className="font-weight-light text-black text-center">Contact Us</h2>
         <div className="row">
