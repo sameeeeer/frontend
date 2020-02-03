@@ -1,9 +1,33 @@
 import React from 'react'
+import axios from 'axios'
 
 
 
 class Header extends React.Component{
-   
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoggedIn: false
+    }
+    this.state = {
+      user: {},
+      config: {
+        headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
+      }
+    }
+  }
+
+  componentDidMount() {
+    axios.get('http://localhost:3000/logincheck', this.state.config)
+      .then((response) => {
+        this.setState({
+          isLoggedIn: true,
+          user: response.data
+        })
+      });
+
+
+  }
        render(){
 
         return(

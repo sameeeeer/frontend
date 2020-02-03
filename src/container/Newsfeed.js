@@ -4,8 +4,7 @@ import Newsfeedpage from '../components/Newsfeedpage';
 import Header from '../components/UserNav/Header';
 import Footer from '../components/Footer';
 import axios from 'axios'
-class Newsfeed extends React.Component{
-    constructor(props) {
+class Newsfeed extends React.Component{constructor(props) {
         super(props)
         this.state = {
           isLoggedIn: false
