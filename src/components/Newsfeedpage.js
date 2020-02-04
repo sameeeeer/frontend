@@ -3,7 +3,7 @@ import Post from './post'
 
 class Newsfeedpage extends React.Component{
        
-    render(){
+    render(){ 
       const photoblog = this.props.post.map(post => {
         return <Post post={post} />
       })

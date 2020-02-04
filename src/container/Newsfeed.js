@@ -24,7 +24,7 @@ class Newsfeed extends React.Component{constructor(props) {
                 this.setState({
                     isLoggedIn: true,
                     user:response.data
-                    })
+                    }) 
             });
         axios.get("http://localhost:3000/findpost").then(res => {
             this.setState({ posts: res.data });

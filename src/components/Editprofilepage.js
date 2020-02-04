@@ -6,6 +6,7 @@ class Editprofilepage extends React.Component{
     super(props)
 
     this.state = {
+      id:"",
       fname:'',
       lname:'',
       number:'',
@@ -23,7 +24,8 @@ class Editprofilepage extends React.Component{
     .then((response) => {
       this.setState({
         user: response.data,
-        fname:response.data.name,
+        id:response.data._id,
+        fname:response.data.fname,
         lname:response.data.lname,
         number:response.data.number,
         dob:response.data.dob,
@@ -33,34 +35,26 @@ class Editprofilepage extends React.Component{
      
     })
   }
+  UpdateData = ()=>{
+    const data = {
+      fname: this.state.fname,
+      lname:this.state.lname,
+      number: this.state.number,
+      dob:this.state.dob,
+      gender:this.state.gender,
+      email:this.state.email
+    }
+    axios.put("http://localhost:3000/updates/"+this.state.id,data).then(
+      setTimeout(function(){
+        alert("Successfully updated");
+      }, 1000)
+    )}
   handlechange = (e) =>{
     this.setState(
       {[e.target.name]:e.target.value}
     )
   }
-  // sendprofilepic = () => {
-  //   var images = this.refs.images[0];
-  //   let formdata = new FormData();
-  //   formdata.append("images", images);
-  //   axios.put('http://localhost:3000/upload/'+ this.state.user._id, formdata,this.state.config).then(function(){
-  //     window.location.reload();
-  //   })
-  // }
-  // sendprofile = () => {
-  //   const data = {
-  //       fname:this.state.fname,
-  //       lname: this.state.lname,
-  //       email: this.state.email,
-  //       gender: this.state.gender, 
-  //       number: this.state.number,
-  //       dob: this.state.dob,
-      
-  
-  //     }
-  //   axios.put('http://localhost:3000/updates/'+ this.state.user._id, data,this.state.config).then(function(){
-  //     window.location.reload();
-  //   })
-  // }
+
     render(){
 
         return(
@@ -78,7 +72,7 @@ class Editprofilepage extends React.Component{
           </div>
           <div className="box-body no-padding">
             <ul className="nav nav-pills nav-stacked">
-            <li><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
+        <li><a href="Newsfeed"><i className="fa fa-dashboard"></i>Newsfeed</a></li>
               <li className="active"><a href="Editprofile"><i className="fa fa-user"></i> Edit Profile</a></li>
               <li><a href="Blog"><i className="fa fa-envelope"></i> Post Blog</a></li>
               <li><a href="Mypost"><i className="fa fa-retweet"></i> My post</a></li>
@@ -92,55 +86,30 @@ class Editprofilepage extends React.Component{
             <div className="col-lg-4 order-lg-1 text-center">
                   <img src={"http://localhost:3000/image/" + this.state.user.images} width="150px" height="150px" className="mx-auto img-fluid img-circle d-block" alt="avatar" />
                   <br />
-                  <h4><b>{this.state.user.fname}</b></h4>
-                  <button className="btn btn-primary" data-toggle="modal" data-target="#myModal">Update Profile</button>
-                  <div id="myModal" class="modal fade" role="dialog">
-                      <div className="modal-dialog">
-
-                          <div className="modal-content">
-                              <div className="modal-header">
-                                  <button type="button" className="close" data-dismiss="modal">&times;</button>
-                                  <h4 className="modal-title">Update Profile</h4>
-                              </div>
-                              <div className="modal-body">
-                                  <form >
-                                      <div className="form-group">
-
-                                          <label for="image">Image:</label><br />
-                                          <input className="form-control" type="file" onChange={(event) =>
-                                              this.setState({ images: event.target.images })} placeholder="Upload Image" />
-                                      </div>
-                                  </form>
-                              </div>
-                              <div className="modal-footer">
-                                  <button type="button" onClick={this.sendprofilepic} className="btn btn-primary">Upload</button>
-                              </div>
-                          </div>
-                          </div>
-                          </div>
+                  <h4><b>{this.state.user.fname} {this.state.user.lname} </b></h4>
                           </div>
             <form>
               <div className="row">
                 <div className="col-md-6 latest-job ">
                   <div className="form-group">
                      <label for="fname">First Name</label>
-                    <input type="text" className="form-control input-lg" id="fname" name="fname" placeholder="First Name" value={this.state.user.fname}/>
+                    <input type="text" className="form-control input-lg" id="fname" name="fname" placeholder="First Name" value={this.state.fname} onChange={this.handlechange} />
                   </div>
                   <div className="form-group">
                     <label for="lname">Last Name</label>
-                    <input type="text" className="form-control input-lg" id="lname" name="lname" placeholder="Last Name" value={this.state.user.lname}/>
+                    <input type="text" className="form-control input-lg" id="lname" name="lname" placeholder="Last Name" value={this.state.lname} onChange={this.handlechange} />
                   </div>
                   <div className="form-group">
                     <label for="number">Phone number</label>
-                    <input type="number" name="number" className="form-control input-lg" placeholder="Number" value={this.state.user.number} />
+                    <input type="number" name="number" className="form-control input-lg" placeholder="Number" value={this.state.number} onChange={this.handlechange}  />
                   </div>
                   <div className="form-group">
                     <label for="dob">Date of birth</label>
-                    <input type="text" name="dob" className="form-control input-lg" placeholder="dob" value={this.state.user.dob} />
+                    <input type="text" name="dob" className="form-control input-lg" placeholder="dob" value={this.state.dob} onChange={this.handlechange} />
                   </div>
                   <div className="form-group">
                     <label for="gender">Gender</label>
-                    <input type="gender" className="form-control input-lg" id="gender" placeholder="gender" value={this.state.user.gender}/>
+                    <input type="gender" className="form-control input-lg" id="gender" placeholder="gender" value={this.state.gender} onChange={this.handlechange} />
                   </div>
                   <div className="form-group">
                     <label for="email">Email address</label>
@@ -149,7 +118,7 @@ class Editprofilepage extends React.Component{
                   
                  
                   <div className="form-group">
-                    <button type="submit" className="btn btn-flat btn-primary">Update Profile</button>
+                    <button type="button" onClick={this.UpdateData} className="btn btn-flat btn-primary">Update Profile</button>
                   </div>
                 </div>
               </div>
