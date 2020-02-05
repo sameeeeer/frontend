@@ -4,13 +4,15 @@ import Newsfeedpage from '../components/Newsfeedpage';
 import Header from '../components/UserNav/Header';
 import Footer from '../components/Footer';
 import axios from 'axios'
-class Newsfeed extends React.Component{constructor(props) {
+class Newsfeed extends React.Component{
+    constructor(props) {
         super(props)
         this.state = {
           isLoggedIn: false
         }
         this.state = {
             user:{},
+            id:"",
             posts:[],
               config: {
                   headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -22,6 +24,7 @@ class Newsfeed extends React.Component{constructor(props) {
         axios.get('http://localhost:3000/logincheck', this.state.config)
             .then((response) => {
                 this.setState({
+                    id:response.data._id,
                     isLoggedIn: true,
                     user:response.data
                     }) 
@@ -29,6 +32,7 @@ class Newsfeed extends React.Component{constructor(props) {
         axios.get("http://localhost:3000/findpost").then(res => {
             this.setState({ posts: res.data });
         })
+        console.log(this.state.posts)
     }
     render(){
         if (this.state.isLoggedIn === false) {

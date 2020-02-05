@@ -117,10 +117,11 @@ postdata = (e) =>{
                                                 <input type="file" name="image" onChange={this.handleImageChange} 
                                                 id="image" className="form-control"/>
                                             </div>
-            <div className="form-group">
-              <textarea className="form-control input-lg" id="status" ref = "status" name="status" placeholder="Status" value={this.state.status} onChange={this.handleChange}></textarea>
-            </div>
+           
           </div>
+          <div className="form-group">
+              <textarea className="form-control input-lg" id="status" ref = "status" name="status" placeholder="status" value={this.state.status} onChange={this.handleChange}></textarea>
+            </div>
        
           <div className="box-footer">
             <div className="pull-right">

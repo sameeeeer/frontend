@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router';
 
 class Editprofilepage extends React.Component{
   constructor(props){
@@ -22,6 +23,7 @@ class Editprofilepage extends React.Component{
   componentDidMount(){
     axios.get('http://localhost:3000/logincheck',this.state.config)
     .then((response) => {
+     //S alert(response.data.fname)
       this.setState({
         user: response.data,
         id:response.data._id,
@@ -54,11 +56,11 @@ class Editprofilepage extends React.Component{
       {[e.target.name]:e.target.value}
     )
   }
-
+  
+  
     render(){
-
         return(
-            <div>
+            <div >
                 
                 <div className="content-wrapper" style={{marginleft: "0 px"}}>
 
