@@ -45,7 +45,12 @@ componentDidMount() {
         })
 }
 
-
+handledelete(id, index){
+  axios.delete("http://localhost:3000/deletepost/" + id).then((res)=>{
+    this.state.post.splice();
+     window.location.reload(); 
+  })
+}
 handlechange = (e) =>{
   this.setState(
     {[e.target.name]:e.target.value}
@@ -77,7 +82,7 @@ handlechange = (e) =>{
       <img src={"http://localhost:3000/image/" + post.image} className="img-responsive post-img" width="70%" />
   </div>
   <div className="pull-right">
-              <button type="button" className="btn btn-primary" onClick={this.deletepost} style={{marginRight:200,marginTop:15}}> <i className="fa fa-times" ></i> Delete </button>
+              <button type="button" className="btn btn-primary" onClick={this.deletepost} style={{marginRight:200,marginTop:15}}  onClick= {()=> this.handledelete(post._id)}> <i className="fa fa-times" ></i> Delete </button>
    </div>
    <div className="pull-left">
               <button type="button" className="btn btn-primary" style={{marginTop:15}} data-toggle="modal" data-target="#myModal"> <i className="fa fa-comment" ></i> Update</button>
