@@ -14,6 +14,7 @@ class Newsfeed extends React.Component{
             user:{},
             id:"",
             posts:[],
+            comment:"",
               config: {
                   headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
               }
@@ -34,6 +35,7 @@ class Newsfeed extends React.Component{
         })
         console.log(this.state.posts)
     }
+
     render(){
         if (this.state.isLoggedIn === false) {
             return <Redirect to='/' />

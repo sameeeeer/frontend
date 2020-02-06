@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router';
+import Navi from '../components/Navi';
 
 class Editprofilepage extends React.Component{
   constructor(props){
@@ -67,22 +68,7 @@ class Editprofilepage extends React.Component{
 <section id="candidates" className="content-header">
   <div className="container">
     <div className="row">
-      <div className="col-md-3">
-        <div className="box box-solid">
-          <div className="box-header with-border">
-            <h3 className="box-title">Welcome <b></b></h3>
-          </div>
-          <div className="box-body no-padding">
-            <ul className="nav nav-pills nav-stacked">
-        <li><a href="Newsfeed"><i className="fa fa-dashboard"></i>Newsfeed</a></li>
-              <li className="active"><a href="Editprofile"><i className="fa fa-user"></i> Edit Profile</a></li>
-              <li><a href="Blog"><i className="fa fa-envelope"></i> Post Blog</a></li>
-              <li><a href="Mypost"><i className="fa fa-retweet"></i> My post</a></li>
-              <li><a href="Logout"><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+   <Navi />
       <div className="col-md-9 bg-white padding-2">
             <h2><i>Edit Profile</i></h2>
             <div className="col-lg-4 order-lg-1 text-center">

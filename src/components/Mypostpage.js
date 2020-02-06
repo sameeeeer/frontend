@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import Post from './post';
 import { Redirect } from 'react-router';
+import Navi from '../components/Navi';
+
 
 class Mypostpage extends React.Component{
 
@@ -10,11 +12,14 @@ class Mypostpage extends React.Component{
 
     this.state = {
         id:'',
+        singleFeed:{},
         post_status :'',
         profileimage: '',
         name:'',
         post: [],
         user: {},
+        category:'',
+        status:'',
         config: {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
         }
@@ -45,17 +50,47 @@ componentDidMount() {
         })
 }
 
+updateFeed=(id)=>{
+  console.log('hit');
+  console.log(id);
+  
+  
+  axios.get(`http://localhost:3000/singleFeed/${id}`).then((response)=>{
+console.log(response);
+
+  this.setState({singleFeed:response.data.singleFeed});    
+
+  })  
+}
+
 handledelete(id, index){
   axios.delete("http://localhost:3000/deletepost/" + id).then((res)=>{
     this.state.post.splice();
      window.location.reload(); 
   })
 }
+
+UpdateData = ()=>{
+  const data = {
+    category: this.state.category,
+    status:this.state.status
+  }
+
+  console.log(this.state.category);
+  axios.put("http://localhost:3000/postupdate/"+this.state.post._id,data).then(
+    setTimeout(function(){
+      alert("Successfully updated");
+    }, 1000)
+  )}
 handlechange = (e) =>{
   this.setState(
     {[e.target.name]:e.target.value}
   )
 }
+
+
+
+
 
  render(){
   //post design foreach loop
@@ -85,20 +120,20 @@ handlechange = (e) =>{
               <button type="button" className="btn btn-primary" onClick={this.deletepost} style={{marginRight:200,marginTop:15}}  onClick= {()=> this.handledelete(post._id)}> <i className="fa fa-times" ></i> Delete </button>
    </div>
    <div className="pull-left">
-              <button type="button" className="btn btn-primary" style={{marginTop:15}} data-toggle="modal" data-target="#myModal"> <i className="fa fa-comment" ></i> Update</button>
+              <button type="button" className="btn btn-primary" style={{marginTop:15}} data-toggle="modal" onClick={()=>this.updateFeed(post._id)} data-target="#myModal"> <i className="fa fa-comment" ></i> Update</button>
               <div id="myModal" class="modal fade" role="dialog">
               <div className="modal-dialog">
          <div className="modal-content">
           <div className="modal-header">
               <form >
                                       <div className="form-group">
-                                      <input className="form-control" type="text" placeholder="Category"/><br />
-                                     <textarea className="form-control" type="text" placeholder="Status"/>
+                                      <input className="form-control" type="text" name='category' placeholder="Category" onChange={this.handlechange} value={this.state.singleFeed.category}/><br />
+                                     <textarea className="form-control" type="text" name='status' placeholder="Status" onChange={this.handlechange} value={this.state.singleFeed.status} />
                                     
                                       </div>
                                     </form>
                                     <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary">Update</button>
+                                    <button type="button" className="btn btn-primary" onClick={this.UpdateData}>Update</button>
                                   </div>
                                     </div>
                                     </div>
@@ -118,22 +153,7 @@ handlechange = (e) =>{
 <section id="candidates" className="content-header">
   <div className="container">
     <div className="row">
-      <div className="col-md-3">
-        <div className="box box-solid">
-          <div className="box-header with-border">
-            <h3 className="box-title">Welcome <b></b></h3>
-          </div>
-          <div className="box-body no-padding">
-            <ul className="nav nav-pills nav-stacked">
-            <li><a href="Newsfeed"><i className="fa fa-dashboard"></i> Newsfeed</a></li>
-              <li><a href="Editprofile"><i className="fa fa-user"></i> Edit Profile</a></li>
-              <li><a href="Blog"><i className="fa fa-envelope"></i> Post Blog</a></li>
-              <li className="active"><a href="Mypost"><i className="fa fa-retweet"></i> My post</a></li>
-              <li><a href="Logout"><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+    <Navi />
       <div className="col-md-9 bg-white padding-2">
       <form action="#" method="post" enctype="multipart/form-data" className="p-5 bg-white">
       <div className="col-md-12">

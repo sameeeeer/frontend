@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class Post extends Component {
     render() {
@@ -29,13 +30,13 @@ class Post extends Component {
          <div className="modal-content">
           <div className="modal-header">
               <form >
-                                      <div className="form-group">
-                                        <textarea className="form-control" type="text" placeholder="Comment *" />
+                                      <div className="form-group" >
+                                        <textarea className="form-control" type="text" placeholder="Comment *" name="comment"/>
                                     
                                       </div>
                                     </form>
                                     <div className="modal-footer">
-                                    <button type="button" className="btn btn-primary">Comment</button>
+                                    <button type="button" className="btn btn-primary"  >Comment</button>
                                   </div>
                                     </div>
                                     </div>
