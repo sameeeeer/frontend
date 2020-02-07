@@ -19,6 +19,7 @@ class Mypostpage extends React.Component{
         post: [],
         user: {},
         category:'',
+        test:'ssssssssssss',
         status:'',
         config: {
             headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
@@ -51,14 +52,19 @@ componentDidMount() {
 }
 
 updateFeed=(id)=>{
-  console.log('hit');
-  console.log(id);
-  
+  // console.log('hit');
+  // console.log(id);
+  //alert(id)
   
   axios.get(`http://localhost:3000/singleFeed/${id}`).then((response)=>{
 console.log(response);
-
-  this.setState({singleFeed:response.data.singleFeed});    
+//alert(response.data.singleFeed.user_id)
+  this.setState({
+    singleFeed:response.data,
+    category:response.data.singleFeed.category,
+    status:response.data.singleFeed.status,
+    id:response.data.singleFeed._id,
+  });    
 
   })  
 }
@@ -71,19 +77,25 @@ handledelete(id, index){
 }
 
 UpdateData = ()=>{
+  alert(this.state.id)
   const data = {
+    
     category: this.state.category,
     status:this.state.status
+    
   }
 
-  console.log(this.state.category);
-  axios.put("http://localhost:3000/postupdate/"+this.state.post._id,data).then(
+  console.log(this.state.singleFeed.category);
+  axios.put("http://localhost:3000/postupdate/"+this.state.id,data).then(
     setTimeout(function(){
       alert("Successfully updated");
     }, 1000)
   )}
+  
 handlechange = (e) =>{
+  alert("af")
   this.setState(
+  
     {[e.target.name]:e.target.value}
   )
 }
@@ -120,15 +132,16 @@ handlechange = (e) =>{
               <button type="button" className="btn btn-primary" onClick={this.deletepost} style={{marginRight:200,marginTop:15}}  onClick= {()=> this.handledelete(post._id)}> <i className="fa fa-times" ></i> Delete </button>
    </div>
    <div className="pull-left">
+   
               <button type="button" className="btn btn-primary" style={{marginTop:15}} data-toggle="modal" onClick={()=>this.updateFeed(post._id)} data-target="#myModal"> <i className="fa fa-comment" ></i> Update</button>
               <div id="myModal" class="modal fade" role="dialog">
               <div className="modal-dialog">
          <div className="modal-content">
           <div className="modal-header">
-              <form >
+              <form > 
                                       <div className="form-group">
-                                      <input className="form-control" type="text" name='category' placeholder="Category" onChange={this.handlechange} value={this.state.singleFeed.category}/><br />
-                                     <textarea className="form-control" type="text" name='status' placeholder="Status" onChange={this.handlechange} value={this.state.singleFeed.status} />
+                                      <input className="form-control" type="text" name='category' placeholder="Category" value={this.state.category} onChange={(event)=>this.setState({ category : event.target.value})} /><br />
+                                     <textarea className="form-control" type="text" name='status' placeholder="Status" value={this.state.status} onChange={(event)=>this.setState({ status : event.target.value})}  />
                                     
                                       </div>
                                     </form>

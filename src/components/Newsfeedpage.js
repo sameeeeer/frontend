@@ -19,11 +19,11 @@ class Newsfeedpage extends React.Component{
      <Navi />
       <div className="col-md-9 bg-white padding-2">
       <form action="#" method="post" enctype="multipart/form-data" className="p-5 bg-white">
-        <div className="box box-primary">
+      
         <div class="col-md-7 gedf-main">
                     {photoblog}
                   </div>
-        </div>
+      
       </form>
       </div>
     </div>
