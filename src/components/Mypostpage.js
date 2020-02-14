@@ -93,7 +93,6 @@ UpdateData = ()=>{
   )}
   
 handlechange = (e) =>{
-  alert("af")
   this.setState(
   
     {[e.target.name]:e.target.value}
@@ -113,7 +112,7 @@ handlechange = (e) =>{
         
  <div className="col-md-12 color-white">
       <img src={"img/avataaar.png"} style={{marginTop:15}} className="img-circle" height="45px" width="45px" />
-      <a href=""><strong>{post.user_id.fname  + " " + post.user_id.lname}</strong></a>
+      <a href="#"><strong>{post.user_id.fname  + " " + post.user_id.lname}</strong></a>
     
   </div>
 

@@ -14,9 +14,6 @@ class Editprofile extends React.Component{
                 <Header />
                 <Editprofilepage />
                 <Footer />
-
-    
-           
            
             </div>
            

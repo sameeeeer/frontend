@@ -13,6 +13,7 @@ class Loginpage extends React.Component{
     this.state = {
         email: '',
         password: '',
+        user_type:'',
         isLoggedIn: false
     }
 }
@@ -27,14 +28,19 @@ submitForm = (e) => {
         .then((response) => {
             console.log(response.data)
             localStorage.setItem('token', response.data.token)
+            localStorage.setItem('user_type', response.data.user.user_type)
+            // alert(response.data.user.user_type)
             this.setState({ isLoggedIn: true })
+
         }).catch((err) => console.log(err.response))
     this.setState({ email: '', password: '' })
 }
 render() {
-
-    if (this.state.isLoggedIn === true) {
+// alert(localStorage.getItem('user_type'))
+    if (this.state.isLoggedIn === true && localStorage.getItem('user_type')=="user") {
         return <Redirect to='/blog' />
+    }  if (this.state.isLoggedIn === true && localStorage.getItem('user_type')=="admin" ) {
+        return <Redirect to='/AdminDashboard' />
     }
     return (
    <div>

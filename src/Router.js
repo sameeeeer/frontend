@@ -9,6 +9,7 @@ import Blog from './container/Blog'
 import Newsfeed from './container/Newsfeed'
 import Editprofile from './container/Editprofile'
 import Mypost from './container/Mypost';
+import AdminDashboard from './container/Admin/AdminDashboard';
 
 class Router extends Component{
     render(){
@@ -22,6 +23,7 @@ class Router extends Component{
                 <Route exact path="/Newsfeed" component={Newsfeed} />
                 <Route exact path="/Editprofile" component={Editprofile} />
                 <Route exact path="/Mypost" component={Mypost} />
+                <Route exact path ="/AdminDashboard" component={AdminDashboard}/>
             </Switch>
             </BrowserRouter>
         )
