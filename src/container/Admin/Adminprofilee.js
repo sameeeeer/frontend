@@ -1,16 +1,16 @@
 import React from 'react'
 import Header from '../../components/UserNav/Header';
 import Footer from'../../components/Footer';
-import Adminpannel from '../../components/Admin/Adminpannel';
+import AdminProfile from '../../components/Admin/AdminProfile';
 
 
 
-class AdminDashboard extends React.Component{
+class Adminprofilee extends React.Component{
   render(){
         return(
             <div>
                 <Header />
-                <Adminpannel />
+                <AdminProfile />
                 <Footer />
 
     
@@ -23,4 +23,4 @@ class AdminDashboard extends React.Component{
        
 
 }
-export default AdminDashboard
+export default Adminprofilee
