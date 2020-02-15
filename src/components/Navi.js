@@ -48,7 +48,7 @@ LogOut=()=>{
 <div className="col-md-3">
 <div className="box box-solid">
   <div className="box-header with-border">
-    <h3 className="box-title">Welcome <b></b></h3>
+    <h3 className="box-title">Welcome, <i>{this.state.user.fname}</i> <b></b></h3>
   </div>
   <div className="box-body no-padding">
     <ul className="nav nav-pills nav-stacked">

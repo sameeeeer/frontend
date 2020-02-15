@@ -48,12 +48,12 @@ LogOut=()=>{
 <div className="col-md-3">
 <div className="box box-solid">
   <div className="box-header with-border">
-    <h3 className="box-title">Welcome <b></b></h3>
+    <h3 className="box-title">Welcome, <i>{this.state.user.fname}</i><b></b></h3>
   </div>
   <div className="box-body no-padding">
     <ul className="nav nav-pills nav-stacked">
-    <li><a href="#"><i className="fa fa-dashboard"></i>Dashboard</a></li>
-      <li><a href="#"><i className="fa fa-user"></i> User Detail</a></li>
+    <li><a href="AdminDashboard"><i className="fa fa-dashboard"></i>Dashboard</a></li>
+      <li><a href="UserDetails"><i className="fa fa-user"></i> User Detail</a></li>
       <li><a href="#"><i className="fa fa-envelope"></i> Post Detail</a></li>
       <li><a href="Adminprofilee"><i className="fa fa-retweet"></i> Admin Detail</a></li>
       <li><a href="Login" onClick={this.LogOut}><i className="fa fa-arrow-circle-o-right"></i> Logout</a></li>
