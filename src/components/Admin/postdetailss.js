@@ -20,7 +20,7 @@ class Postdetailss extends Component {
           }
       }
 
-      console.log(this.props.post)
+      // console.log(this.props.post)
   }
 
   handleChange = (e) => {
@@ -43,8 +43,8 @@ class Postdetailss extends Component {
                   <thead>
                           <th>First Name</th>
                           <th>Last Name</th>
-                          <th>status.</th>
                           <th>category</th>
+                          <th>status</th>
                           <th>Delete</th>
                         </thead>
                         <tbody>

@@ -43,6 +43,7 @@ class AdminDashboard extends React.Component{
     if (this.state.isLoggedIn === false) {
         return <Redirect to='/' />
       }
+  
         return(
             <div>
                 <Header />

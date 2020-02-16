@@ -31,7 +31,7 @@ class Post extends Component {
 
 
     postcomment = (e) =>{
-        alert(this.state.comment)
+        // alert(this.state.comment)
         e.preventDefault();
 
         const data = {
@@ -48,7 +48,8 @@ class Post extends Component {
           });
             setTimeout(function() {
               window.location.reload()
-             }, 3000);
+              alert("Successfully updated");
+             }, 1000);
           })
           .catch(error=>{   
               this.setState({

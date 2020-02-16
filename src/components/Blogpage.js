@@ -61,7 +61,7 @@ postdata = (e) =>{
     });
       setTimeout(function() {
         window.location.reload()
-       }, 3000);
+       }, 1000);
     })
     .catch(error=>{   
         this.setState({

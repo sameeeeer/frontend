@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router';
-
+import {
+  Container, Col, Form, FormGroup, Label, Input, Button, FormText
+} from 'reactstrap'
 
 
 class Signuppage extends React.Component{
@@ -59,30 +61,51 @@ class Signuppage extends React.Component{
     <div className="login-box-body">
     <p className="login-box-msg">Candidates Registration</p>
 
-          <form>           
+          <form>     
+          <div className="form-group has-feedback">
+                    <Col>
+                        <FormGroup>
+                            <Label for='fname'>First Name</Label>
+                            <input className="form-control" type="text" alue={this.state.fname} onChange={(event)=>
+                        this.setState({fname: event.target.value})} placeholder="First name *" required/>
+                          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
+
+                    </div>      
                         <div className="form-group has-feedback">
-                        <input className="form-control" type="text" required autocomplete="off" value={this.state.fname} onChange={(event)=>
-                        this.setState({fname: event.target.value})} placeholder="First name *"/>
-					
+                       <Col>
+                        <FormGroup>
+                            <Label for='lname'>Last Name</Label>
+                            <input className="form-control" type="text" value={this.state.lname} onChange={(event)=>
+                        this.setState({lname: event.target.value})} placeholder="Last name *" required/>
+                          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
                         </div>
 
                         <div className="form-group has-feedback">
-                        <input className="form-control" type="text" required autocomplete="off" value={this.state.lname} onChange={(event)=>
-                        this.setState({lname: event.target.value})} placeholder="Last name *"/>
-					
+                        <Col>
+                        <FormGroup>
+                            <Label for='number'>Phone number</Label>
+                            <input className="form-control" type="text" value={this.state.number} onChange={(event)=>
+                        this.setState({number: event.target.value})} placeholder="Phone number *" required/>
+                          <span class="glyphicon glyphicon-phone form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
                         </div>
 
                         <div className="form-group has-feedback">
-                        <input className="form-control" type="number" required autocomplete="off" value={this.state.number} onChange={(event)=>
-                        this.setState({number: event.target.value})} placeholder="Phone number *"/>
-					
+                        <Col>
+                        <FormGroup>
+                            <Label for='date'>DOB</Label>
+                            <input className="form-control" type="date" value={this.state.dob} onChange={(event)=>
+                        this.setState({dob: event.target.value})} placeholder="Date of birth*" required/>
+                          <span class="glyphicon glyphicon-date form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
                         </div>
 
-                        <div className="form-group has-feedback">
-                        <input className="form-control" type="date" required autocomplete="off" value={this.state.dob} onChange={(event)=>
-                        this.setState({dob: event.target.value})} placeholder="Date of birth*"/>
-					
-                        </div>
 
                         <div className="form-group has-feedback">
                   <label for="Gender">Gender:</label><br />
@@ -99,27 +122,43 @@ class Signuppage extends React.Component{
                         this.setState({gender: "Others"})} name="gender" />Others</label>
                   </div>
                 </div>
-					  
-                      <div className="form-group has-feedback">
-                        <input className="form-control" type="email" required autocomplete="off" value={this.state.email} onChange={(event)=>
-                        this.setState({email: event.target.value})} placeholder="Email *"/>
-						<span className="glyphicon glyphicon-user form-control-feedback"></span>
-						  </div>
-              
-                     <div className="form-group">
-                      <input className="form-control" type="password" required autocomplete="off" value={this.state.password} onChange={(event)=>
-                        this.setState({password: event.target.value})} placeholder="Set A Password *"/>
-					  
-				    </div>
-					
-            <div className="col-xs-4">
-                      <button type="submit" className="btn btn-primary btn-block btn-flat" onClick={this.sendUser}>Sign up</button>
-                      
-					
-            </div>
+                <div className="form-group has-feedback">
+                        <Col>
+                        <FormGroup>
+                            <Label for='date'>Email</Label>
+                            <input className="form-control" type="email" value={this.state.email} onChange={(event)=>
+                        this.setState({email: event.target.value})} placeholder="Email *" required/>
+						<span className="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
+               </div>
+               <div className="form-group has-feedback">
+                        <Col>
+                        <FormGroup>
+                            <Label for='password'>password</Label>
+                            <input className="form-control" type="password" value={this.state.password} onChange={(event)=>
+                        this.setState({password: event.target.value})} placeholder="Set A Password *" required/>
+						<span className="glyphicon glyphicon-lock form-control-feedback"></span>
+                        </FormGroup>
+                    </Col>
+               </div>
+               <div class="row">
+        <div class="col-xs-8">
+          <a href="login">Already have an Account ?</a>
+        </div>
+
+        <div class="col-xs-4">
+        <button type="submit" className="btn btn-primary btn-block btn-flat" onClick={this.sendUser}>Sign up</button>
+                    
+                
+        </div>
+       
+      </div>
+				
 			
                     </form>
 					</div>
+          
 
  
  

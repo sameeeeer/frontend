@@ -57,7 +57,7 @@ updateFeed=(id)=>{
   //alert(id)
   
   axios.get(`http://localhost:3000/singleFeed/${id}`).then((response)=>{
-console.log(response);
+// console.log(response);
 //alert(response.data.singleFeed.user_id)
   this.setState({
     singleFeed:response.data,
@@ -77,7 +77,7 @@ handledelete(id, index){
 }
 
 UpdateData = ()=>{
-  alert(this.state.id)
+  // alert(this.state.id)
   const data = {
     
     category: this.state.category,
@@ -89,6 +89,7 @@ UpdateData = ()=>{
   axios.put("http://localhost:3000/postupdate/"+this.state.id,data).then(
     setTimeout(function(){
       alert("Successfully updated");
+      window.location.reload(); 
     }, 1000)
   )}
   

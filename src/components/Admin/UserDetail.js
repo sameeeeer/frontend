@@ -39,8 +39,10 @@ class UserDetail extends React.Component{
                         <td>{this.props.password}</td>
                         <td><img src={"http://localhost:3000/image/" + this.props.images} width="50px" height="25px" className="img-responsive post-img" alt="avatar" /></td>
                   
-                        <td><button classNameName = "btn btn-danger" onClick={this.DeleteTeacher} >Delete<span classNameName="fa fa-trash" ></span>
-                </button></td>
+                        <td>
+                      
+                <button type="button" className="btn btn-primary" onClick={this.DeleteTeacher} style={{marginRight:200,marginTop:15}}> <i className="fa fa-times" ></i> Delete </button>
+                </td>
                       </tr>  
                 
                     </tbody>   

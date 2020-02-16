@@ -23,7 +23,6 @@ class AdminProfile extends React.Component{
   componentDidMount(){
     axios.get('http://localhost:3000/logincheck',this.state.config)
     .then((response) => {
-     //S alert(response.data.fname)
       this.setState({
         user: response.data,
         id:response.data._id,

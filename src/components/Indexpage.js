@@ -31,7 +31,7 @@ class Indexpage extends React.Component{
       <div className="container">
         <div className="row">
           <div className="col-md-12 latest-job margin-bottom-20">
-            <h1 className="text-center">Popular Stories</h1>            
+                
 
            
          
