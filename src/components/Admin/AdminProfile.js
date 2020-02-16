@@ -1,9 +1,8 @@
-import React from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router';
-import Navi from '../components/Navi';
+import React from 'react'
+import AdminNavi from '../AdminNavi/AdminNavi'
 
-class Editprofilepage extends React.Component{
+class AdminProfile extends React.Component{
   constructor(props){
     super(props)
 
@@ -24,7 +23,6 @@ class Editprofilepage extends React.Component{
   componentDidMount(){
     axios.get('http://localhost:3000/logincheck',this.state.config)
     .then((response) => {
-     //S alert(response.data.fname)
       this.setState({
         user: response.data,
         id:response.data._id,
@@ -57,19 +55,16 @@ class Editprofilepage extends React.Component{
       {[e.target.name]:e.target.value}
     )
   }
-  
-  
-    render(){
+       render(){
+
         return(
-            <div >
-                
-                <div className="content-wrapper" style={{marginleft: "0 px"}}>
+              <div className="content-wrapper" style={{marginleft: "0 px"}}>
 
 <section id="candidates" className="content-header">
-  <div className="container">
-    <div className="row">
-   <Navi />
-      <div className="col-md-9 bg-white padding-2">
+<div className="container">
+  <div className="row">
+<AdminNavi />
+<div className="col-md-9 bg-white padding-2">
             <h2><i>Edit Profile</i></h2>
             <div className="col-lg-4 order-lg-1 text-center">
                   <img src={"http://localhost:3000/image/" + this.state.user.images} width="150px" height="150px" className="mx-auto img-fluid img-circle d-block" alt="avatar" />
@@ -112,16 +107,14 @@ class Editprofilepage extends React.Component{
               </div>
             </form>
               </div>
-            </div>
-          </div>
-          </section>
-          </div>
-
-    
-
-  </div>
-           
-        )
-       }
-}
-export default Editprofilepage
+</div>
+</div>
+</section>
+</div>
+         
+         )
+        }
+        
+ 
+ }
+ export default AdminProfile

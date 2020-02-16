@@ -1,13 +1,13 @@
 import axios from 'axios'
 import React from 'react'
 import AdminNavi from '../AdminNavi/AdminNavi'
-import Adminpost from './Adminpost'
+import Postdetailss from './postdetailss'
 
-class Adminpannel extends React.Component{
+class PostDetail extends React.Component{
   
   render(){
   const photoblog = this.props.post.map(post => {
-    return <Adminpost post={post} />
+    return <Postdetailss post={post} />
   })
     return(
         <div>
@@ -18,16 +18,11 @@ class Adminpannel extends React.Component{
 <div className="container">
   <div className="row">
 <AdminNavi />
-<div className="col-md-9 bg-white padding-2">
-      <form action="#" method="post" enctype="multipart/form-data" className="p-5 bg-white">
-      
-        <div class="col-md-7 gedf-main">
+
                     {photoblog}
                   </div>
-      
-      </form>
-      </div>
-</div>
+   
+
 </div>
 </section>
 </div>
@@ -38,4 +33,4 @@ class Adminpannel extends React.Component{
         
  
  }
- export default Adminpannel
+ export default PostDetail
