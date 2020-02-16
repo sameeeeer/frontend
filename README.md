@@ -1,68 +1,25 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Introduction 
+My final year project title for web API is Blogging for you which is an online photo blogging website where user can create their account and can login though it with the help of email and password. Here I have developed an website which is called Blogging for you that give its user a platform where they can post their day to day event, situation, topic in a blog an post it and get the feedback as a comment from other users. These website is all about posting the blogs by the user which can be seen by other user and can give their comment on the blogs. Here user only need to select a photo which they want to post with the status and category. This website will help the user to post their thought among the other users and get there feedback as comment.
+It mainly focused to the people who can’t express their opinions, views regarding any topic in a real life but with help of these application they can express their thoughts, opinions without worrying any things. People will be able to rise the problem regarding any topic by posting a blog though which other people can give their views, opinions.
+Technology Used:
+This website is created in Visual studio code using Node JS as a programming language for backend and React JS for the frontend. Also I have used bootstrap and custom CSS for frontend design of my website to make the website responsive so, that it can be supported in various types of devices from small to big.
+Aims:
+ The main of this project is to provide a platform to the people to create the blog on efficient and easy way and get review as a comment.
+Objective 
+• To make the application user friendly website by using suitable web tools.
+• To be able to build review system in the post as a comment. 
+• Different operation such as CRUD should be easily reachable with its interface management. 
+• Provide as most as simple and responsive user Interface so that user will be easily able to use the application. 
+• To utilize REST API to construct Web API that can bolster different application.
+• And at last testing the application after completion to see whether it’s running effectively or not.
 
-## Available Scripts
 
-In the project directory, you can run:
+Features 
+• Login and registration by user and admin.
+ • User can add post with status and category. 
+• Users can add comment on the post of other users. 
+• Users and admin are able to update their profile details. 
+• Users are able to delete and update their posts.
+• Admin can view the post posted by users and can delete if he/she thinks it is not right
+• Admin can also delete the user’s details if he/she have any suspicions. 
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
